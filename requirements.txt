@@ -1,0 +1,13 @@
+# Core dependencies for RAG system
+PyPDF2==3.0.1
+sentence-transformers==2.2.2
+faiss-cpu==1.7.4
+anthropic==0.34.0
+numpy==1.24.3
+groq>=0.9.0,<1.0
+
+
+
+# Optional dependencies for enhanced functionality
+# langchain==0.1.0  # Uncomment for LangChain integration
+# chromadb==0.4.22  # Uncomment for ChromaDB instead of FAISS
