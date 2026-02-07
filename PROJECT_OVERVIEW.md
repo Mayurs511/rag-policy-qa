@@ -2,9 +2,6 @@
 
 ## 📦 Complete Deliverables
 
-This submission includes everything needed for a production-ready RAG system for policy document Q&A.
-
----
 
 ## 📁 Files Included
 
@@ -16,18 +13,16 @@ This submission includes everything needed for a production-ready RAG system for
 ### Documentation
 - **`README.md`** (14KB) - Complete setup guide, architecture, and usage
 - **`EVALUATION.md`** (7.9KB) - Detailed evaluation methodology
-- **`SUBMISSION_NOTES.md`** (7.2KB) - What I'm proud of + what I'd improve
 - **`QUICK_REFERENCE.md`** (4.9KB) - Fast lookup for common tasks
 
 ### Setup & Configuration
 - **`requirements.txt`** - All Python dependencies
-- **`setup.sh`** - Automated setup script
 - **`.gitignore`** - Git ignore rules
 
 ### Bonus
 - **`langchain_bonus.py`** (5.0KB) - LangChain integration example
 
-**Total**: 10 files, ~70KB of code and documentation
+**Total**: 9 files, ~70KB of code and documentation
 
 ---
 
@@ -51,31 +46,8 @@ This submission includes everything needed for a production-ready RAG system for
 - Hallucination detection
 - Comparison framework for prompt versions
 
-### 4. Complete Documentation
-- Setup in 30 seconds with `./setup.sh`
-- Architecture diagrams
-- Design trade-offs explained
-- Future improvement roadmap
 
----
 
-## 🚀 Quick Start
-
-```bash
-# 1. Setup
-./setup.sh
-
-# 2. Set API key
-export ANTHROPIC_API_KEY='your-key-here'
-
-# 3. Add your policy PDF
-# Place it in project root as: policy_document.pdf
-
-# 4. Run
-python demo.py
-```
-
----
 
 ## 📊 Results Preview
 
@@ -134,7 +106,6 @@ your order number to initiate the return (Excerpt 2, Page 4).
 rag-policy-qa/
 │
 ├── 📄 README.md                  ← Start here
-├── 📄 SUBMISSION_NOTES.md        ← For interviewer
 ├── 📄 EVALUATION.md              ← Evaluation details
 ├── 📄 QUICK_REFERENCE.md         ← Quick lookup
 │
@@ -144,7 +115,6 @@ rag-policy-qa/
 ├── 🐍 langchain_bonus.py         ← Bonus: LangChain
 │
 ├── ⚙️ requirements.txt
-├── ⚙️ setup.sh
 ├── ⚙️ .gitignore
 │
 └── 📁 (add your policy_document.pdf here)
@@ -166,8 +136,6 @@ rag-policy-qa/
 - [x] Trade-offs documented
 - [x] Bonus: LangChain integration
 - [x] Bonus: Prompt comparison tool
-
-**All requirements met + extras!**
 
 ---
 
@@ -193,14 +161,8 @@ Not just "I used 500 characters" but:
 - Why overlap? (Prevents information loss)
 - What alternatives? (Compared to 1000 chars, semantic chunking)
 
-### 4. Production-Ready Error Handling
-```python
-# Not just: if not retrieved_docs: return "Error"
-# But: if not retrieved_docs or retrieved_docs[0][1] > 1.5:
-#        return detailed fallback with explanation
-```
 
-### 5. Comprehensive Documentation
+### 4. Comprehensive Documentation
 - README: Setup + usage
 - EVALUATION: Methodology
 - SUBMISSION_NOTES: What I'm proud of
@@ -253,58 +215,6 @@ Most submissions have one README. This has four docs covering different needs.
    @lru_cache(maxsize=100)
    def answer_question(query): ...
    ```
-
----
-
-## 🎤 Elevator Pitch
-
-**"I built a production-ready RAG system with two prompt versions showing 40% hallucination reduction through structured output and citation requirements. It handles edge cases gracefully, includes comprehensive evaluation, and is fully documented. Setup takes 30 seconds."**
-
----
-
-## 📧 Contact & Next Steps
-
-### To run this project:
-1. Clone the repository
-2. Run `./setup.sh`
-3. Export `ANTHROPIC_API_KEY`
-4. Add `policy_document.pdf`
-5. Run `python demo.py`
-
-### For questions:
-- Read `README.md` for overview
-- Check `QUICK_REFERENCE.md` for common tasks
-- Review `EVALUATION.md` for methodology
-- See `SUBMISSION_NOTES.md` for my thought process
-
-### To extend:
-- Use `langchain_bonus.py` for LangChain integration
-- Modify chunk size in `DocumentProcessor`
-- Add reranking in `RAGPipeline.retrieve()`
-- Create custom evaluation questions
-
----
-
-## 🏆 Assignment Requirements Met
-
-| Requirement | Status | Notes |
-|------------|--------|-------|
-| Data preparation | ✅ | PDF loading, cleaning, chunking |
-| RAG pipeline | ✅ | Embedding, FAISS, retrieval, generation |
-| Prompt engineering | ⭐ | Two versions with clear improvements |
-| Evaluation | ✅ | 8 questions, accuracy, hallucination checks |
-| Edge cases | ✅ | Missing info, out-of-scope questions |
-| GitHub repo | ✅ | Complete with all files |
-| README | ✅ | Setup, architecture, trade-offs |
-| **Bonus: Templating** | ✅ | LangChain example included |
-| **Bonus: Reranking** | 📝 | Documented in improvements section |
-| **Bonus: Comparison** | ✅ | `compare_prompts.py` included |
-| **Bonus: Logging** | 📝 | Documented as future enhancement |
-
-✅ = Implemented  
-⭐ = Exceptional quality  
-📝 = Documented for future work
-
 ---
 
 ## 🎓 Learning Outcomes
@@ -322,12 +232,3 @@ Most submissions have one README. This has four docs covering different needs.
 - Not just features but trade-offs
 - Not just implementation but evaluation
 
----
-
-**Ready to submit? This is production-ready!** 🚀
-
----
-
-*Built for NeuraAI AI Engineer Intern Assignment*  
-*Time invested: ~5 hours*  
-*Focus: Prompt engineering excellence + evaluation rigor*
