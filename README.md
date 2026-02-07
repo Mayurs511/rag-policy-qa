@@ -42,18 +42,19 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 # Set API key
-export ANTHROPIC_API_KEY='your-api-key-here'
+GROQ_API_KEY=groq_api_key_here
 
-# Add your policy PDF
-# Place your doTERRA policy PDF in the project root
+
+
+Place  doTERRA policy PDF in the project root
 # Rename it to: policy_document.pdf
 ```
 
 ### Run Demo
 
-```bash
+
 python demo.py
-```
+
 
 This will:
 1. Load and chunk your policy document
@@ -84,7 +85,7 @@ This will:
 │ - Embed chunks      │ ◄─── SentenceTransformer
 │ - Store in FAISS    │      (all-MiniLM-L6-v2)
 │ - Retrieve (top-k)  │
-│ - Generate answer   │ ◄─── Claude Sonnet 4
+│ - Generate answer   │ ◄─── llama-3.1-8b-instant
 └──────┬──────────────┘
        │
        ▼
@@ -209,17 +210,16 @@ overlap = 100     # ~20-25 tokens
 
 #### ✅ Fully Answerable (3)
 1. What is the refund policy for products?
-2. How long does shipping typically take?
-3. Can I cancel my order after it has been shipped?
+2. What happens if a Wellness Advocate violates the intellectual property usage rules?
+3. Are Wellness Advocates allowed to sell dōTERRA products on Amazon or Flipkart?"
 
 #### ⚠️ Partially Answerable (3)
-4. What payment methods are accepted?
-5. Are there any restrictions on international shipping?
-6. What is the company's policy on damaged products?
+4. "How do I become a wholesale member?"
+
 
 #### ❌ Unanswerable (2)
-7. How do I become a wholesale member?
-8. What is the weather like at company headquarters?
+5. "What is the weather like in the company headquarters?"
+
 
 ### Evaluation Criteria
 
@@ -341,13 +341,13 @@ from rag_system import RAGPipeline, DocumentProcessor
 - ChromaDB (persistent, more features)
 - Pinecone (cloud-based, scalable)
 
-### 3. LLM: Claude Sonnet 4
+### 3. LLM: Groq (llama-3.1-8b-instant)
 
 **Why?**
 - ✅ Excellent instruction following
 - ✅ Good at admitting limitations
 - ✅ Strong citation capabilities
-- ❌ Requires API key / costs money
+
 
 **Alternatives**:
 - GPT-4 (similar quality)
@@ -393,7 +393,7 @@ final = combine(semantic_scores, keyword_scores, weights=[0.7, 0.3])
 
 **Impact**: Better for exact policy names/numbers
 
-### 3. Prompt Templating with LangChain (Low Priority)
+### 3. Prompt Templating with LangChain 
 
 **Current**: Manual prompt strings  
 **Better**: LangChain PromptTemplate
@@ -511,10 +511,6 @@ evaluator.print_summary()
 
 ## 🐛 Troubleshooting
 
-### "ANTHROPIC_API_KEY not set"
-```bash
-export ANTHROPIC_API_KEY='sk-ant-...'
-```
 
 ### "ModuleNotFoundError: No module named 'faiss'"
 ```bash
@@ -531,20 +527,8 @@ pip install faiss-cpu
 
 - **Sentence Transformers**: [https://www.sbert.net](https://www.sbert.net)
 - **FAISS**: [https://github.com/facebookresearch/faiss](https://github.com/facebookresearch/faiss)
-- **Claude API**: [https://docs.anthropic.com](https://docs.anthropic.com)
+
 
 ---
 
-## 📄 License
 
-MIT License - Feel free to use for learning purposes
-
----
-
-## 👤 Author
-
-Created for NeuraAI AI Engineer Intern Assignment  
-Built with: Python, Claude Sonnet 4, FAISS, Sentence Transformers
-
-**Completion Time**: ~5 hours  
-**Focus Areas**: Prompt engineering, hallucination prevention, evaluation rigor
